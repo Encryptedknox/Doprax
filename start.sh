@@ -1,3 +1,3 @@
 #!/bin/bash
-git clone $REPO_URL FileStreamBot && cd FileStreamBot && pip3 install -U -r requirements.txt
+git clone $REPO_URL Bot && cd Bot && pip3 install -U -r requirements.txt
 $START_CMD
