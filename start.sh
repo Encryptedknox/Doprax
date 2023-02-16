@@ -1,3 +1,3 @@
 #!/bin/bash
-git clone $GIT t && apt update && cd t && pip3 install -U -r requirements.txt
+git clone $GIT mask && apt update && cd mask && pip3 install -U -r requirements.txt
 $CMD
