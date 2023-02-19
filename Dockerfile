@@ -1,13 +1,18 @@
+FROM ubuntu:bionic
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get -y install \
+    python3 python3-dev python3-dev python3-pip python3-venv 
 
-FROM python:3.10.9
+ARG USER=root
+USER $USER
+RUN python3 -m venv venv
+WORKDIR /app
 
-WORKDIR . .
-COPY . .
-RUN git clone https://github.com/Encryptedknox/t
-RUN cd t
-RUN apt update && apt upgrade -y
-RUN apt install git python3-pip ffmpeg -y
-
+COPY requirements.txt ./requirements.txt
 RUN pip3 install -r requirements.txt
+COPY start.sh start.sh
+COPY app.py app.py
 
-CMD python3 bot.py
+EXPOSE 5000
+RUN chmod +x /app/start.sh
+ENTRYPOINT ["./start.sh"]
