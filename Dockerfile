@@ -15,4 +15,4 @@ COPY start.sh start.sh
 COPY app.py app.py
 EXPOSE 5000
 RUN chmod +x /app/start.sh
-ENTRYPOINT ["./start.sh"]
+ENTRYPOINT ["./start.sh
